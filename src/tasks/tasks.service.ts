@@ -6,15 +6,13 @@ import { Task } from './interfaces/Task';
 
 @Injectable()
 export class TasksService {
+  constructor(@InjectModel('Task') private taskModel: Model<Task>) {}
 
-    constructor(@InjectModel('Task') private taskModel: Model<Task>) {}
+  async getTasks() {
+    return await this.taskModel.find();
+  }
 
-
-    async getTasks() {
-        return await this.taskModel.find();
-    }
-
-    async getTask(id: string){
-        return await this.taskModel.findById(id);
-    }
+  async getTask(id: string) {
+    return await this.taskModel.findById(id);
+  }
 }

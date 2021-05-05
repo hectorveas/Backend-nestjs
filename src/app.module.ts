@@ -7,7 +7,10 @@ import { TasksModule } from './tasks/tasks.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [TasksModule, MongooseModule.forRoot('mongodb://localhost/nest-tasks')],
+  imports: [
+    TasksModule,
+    MongooseModule.forRoot('mongodb://localhost/nest-tasks'),
+  ],
   controllers: [AppController, TasksController],
   providers: [AppService, TasksService],
 })
